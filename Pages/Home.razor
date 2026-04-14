@@ -15,7 +15,7 @@
 else
 {
     <div class="mb-3">
-        <a href="EventEase/events/add" class="btn btn-primary">Add New Event</a>
+        <a href="./EventEase/events/add" class="btn btn-primary">Add New Event</a>
     </div>
 
     @if (events.Count == 0)
@@ -41,7 +41,7 @@ else
                         <td>@eventItem.Location</td>
                         <td>@eventItem.Date.ToShortDateString()</td>
                         <td>
-                            <a href="EventEase/events/edit/@eventItem.Id" class="btn btn-warning btn-sm">Edit</a>
+                            <a href="./EventEase/events/edit/@eventItem.Id" class="btn btn-warning btn-sm">Edit</a>
                             <button @onclick="() => DeleteEvent(eventItem.Id)" class="btn btn-danger btn-sm">Delete</button>
                         </td>
                     </tr>
