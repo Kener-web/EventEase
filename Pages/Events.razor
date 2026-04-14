@@ -12,9 +12,9 @@
             <p class="text-muted">Create, edit, delete, and review your events from one simple page.</p>
         </div>
         <div class="col-md-4 text-end">
-            <a href="add" class="btn btn-primary">
+            <NavLink href="events/add" class="btn btn-primary">
                 <span class="bi bi-plus-circle"></span> Add New Event
-            </a>
+            </NavLink>
         </div>
     </div>
 
@@ -29,7 +29,7 @@
     else if (events.Count == 0)
     {
         <div class="alert alert-info">
-            No events found. <a href="add" class="alert-link">Create a new event</a>
+            No events found. <NavLink href="events/add" class="alert-link">Create a new event</NavLink>
         </div>
     }
     else
@@ -52,7 +52,7 @@
                         </div>
                         <div class="card-footer bg-white border-top">
                             <div class="d-flex gap-2">
-                                <a href="edit/@eventItem.Id" class="btn btn-outline-warning btn-sm flex-fill">Edit</a>
+                                <NavLink href=@($"events/edit/{eventItem.Id}") class="btn btn-outline-warning btn-sm flex-fill">Edit</NavLink>
                                 <button class="btn btn-outline-danger btn-sm flex-fill" @onclick="() => DeleteEvent(eventItem.Id)">Delete</button>
                             </div>
                         </div>

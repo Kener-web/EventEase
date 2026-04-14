@@ -20,7 +20,7 @@
                 }
                 else
                 {
-                    <span>No user logged in - <a href="registration" class="alert-link">Register here</a></span>
+                    <span>No user logged in - <NavLink href="registration" class="alert-link">Register here</NavLink></span>
                 }
             </div>
         </div>
@@ -37,12 +37,12 @@
                     @if (SessionService.CurrentUser == null)
                     {
                         <div class="alert alert-warning">
-                            Please <a href="registration" class="alert-link">register or login</a> to view your registered events.
+                            Please <NavLink href="registration" class="alert-link">register or login</NavLink> to view your registered events.
                         </div>
                     }
                     else if (userAttendances.Count == 0)
                     {
-                        <p class="text-muted">You haven't registered for any events yet. <a href="events" class="link">Browse events</a></p>
+                        <p class="text-muted">You haven't registered for any events yet. <NavLink href="events" class="link">Browse events</NavLink></p>
                     }
                     else
                     {
@@ -167,7 +167,7 @@
                     @if (SessionService.CurrentUser == null)
                     {
                         <div class="alert alert-warning">
-                            Please <a href="registration" class="alert-link">register or login</a> to register for events.
+                            Please <NavLink href="registration" class="alert-link">register or login</NavLink> to register for events.
                         </div>
                     }
                     else
