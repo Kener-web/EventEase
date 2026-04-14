@@ -1,72 +1,28 @@
 ﻿@page "/"
-@inject IEventService EventService
-@inject NavigationManager Navigation
-@using EventEase.Models
-@using EventEase.Services
 
-<PageTitle>Events</PageTitle>
+<PageTitle>EventEase</PageTitle>
 
-<h3>Events</h3>
-
-@if (events == null)
-{
-    <p>Loading...</p>
-}
-else
-{
-    <div class="mb-3">
-        <a href="./EventEase/events/add" class="btn btn-primary">Add New Event</a>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="p-5 bg-light rounded shadow-sm">
+                <h1 class="display-5">Welcome to EventEase</h1>
+                <p class="lead">A simple Blazor event management experience for GitHub Pages.</p>
+                <p>
+                    Create, update, delete, and browse your events from a clean single-page interface.
+                    EventEase is designed to work with client-side routing and repository-hosted deployments.
+                </p>
+                <ul>
+                    <li>List all events</li>
+                    <li>Add new events</li>
+                    <li>Edit existing events</li>
+                    <li>Remove events you no longer need</li>
+                </ul>
+                <div class="mt-4">
+                    <a class="btn btn-primary btn-lg me-2" href="events">Manage Events</a>
+                    <a class="btn btn-outline-secondary btn-lg" href="registration">Register</a>
+                </div>
+            </div>
+        </div>
     </div>
-
-    @if (events.Count == 0)
-    {
-        <p>No events found.</p>
-    }
-    else
-    {
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Location</th>
-                    <th>Date</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var eventItem in events)
-                {
-                    <tr>
-                        <td>@eventItem.Name</td>
-                        <td>@eventItem.Location</td>
-                        <td>@eventItem.Date.ToShortDateString()</td>
-                        <td>
-                            <a href="./EventEase/events/edit/@eventItem.Id" class="btn btn-warning btn-sm">Edit</a>
-                            <button @onclick="() => DeleteEvent(eventItem.Id)" class="btn btn-danger btn-sm">Delete</button>
-                        </td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-    }
-}
-
-@code {
-    private List<Event> events = new();
-
-    protected override async Task OnInitializedAsync()
-    {
-        await LoadEvents();
-    }
-
-    private async Task LoadEvents()
-    {
-        events = await EventService.GetAllEventsAsync();
-    }
-
-    private async Task DeleteEvent(int id)
-    {
-        await EventService.DeleteEventAsync(id);
-        await LoadEvents();
-    }
-}
+</div>

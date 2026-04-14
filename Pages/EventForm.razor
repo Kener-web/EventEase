@@ -63,7 +63,7 @@ else if (currentEvent != null)
             var eventFromService = await EventService.GetEventByIdAsync(Id.Value);
             if (eventFromService is null)
             {
-                Navigation.NavigateTo("/not-found");
+                Navigation.NavigateTo("not-found");
                 return;
             }
             currentEvent = eventFromService;
@@ -88,7 +88,7 @@ else if (currentEvent != null)
             {
                 await EventService.AddEventAsync(currentEvent);
             }
-            Navigation.NavigateTo("/events");
+            Navigation.NavigateTo("events");
         }
         finally
         {
@@ -98,6 +98,6 @@ else if (currentEvent != null)
 
     private void Cancel()
     {
-        Navigation.NavigateTo("/events");
+        Navigation.NavigateTo("events");
     }
 }
