@@ -5,8 +5,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>EventEase</title>
-    <!-- <base href="/" /> -->
-    <base href="https://kener-web.github.io/EventEase/" />
+    <base href="/EventEase/" />
+    <!-- <base href="https://kener-web.github.io/EventEase/" /> -->
     <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/app.css" />
     <link rel="icon" type="image/png" href="favicon.png" />
@@ -30,6 +30,16 @@
         <a href="." class="reload">Reload</a>
         <span class="dismiss">🗙</span>
     </div>
+    <script>
+        (function () {
+            var url = new URL(window.location.href);
+            var redirect = url.searchParams.get('redirect');
+            if (redirect) {
+                url.searchParams.delete('redirect');
+                window.history.replaceState(null, '', redirect);
+            }
+        })();
+    </script>
     <script src="_framework/blazor.webassembly.js"></script>
     <script>navigator.serviceWorker.register('service-worker.js');</script>
 </body>
