@@ -276,7 +276,7 @@
 
             // Redirect to events page after 2 seconds
             await Task.Delay(2000);
-            NavigationManager.NavigateTo("/events");
+            NavigationManager.NavigateTo("events");
         }
         catch (Exception ex)
         {
@@ -395,7 +395,7 @@
         
         // Redirect to events page after 1 second
         await Task.Delay(1000);
-        NavigationManager.NavigateTo("/events");
+        NavigationManager.NavigateTo("events");
     }
 
     private async Task DeleteUser(User user)
