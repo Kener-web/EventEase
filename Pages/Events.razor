@@ -14,7 +14,7 @@
             <h2>Events</h2>
         </div>
         <div class="col-md-4 text-end">
-            <a href="/events/add" class="btn btn-primary">
+            <a href="EventEase/events/add" class="btn btn-primary">
                 <span class="bi bi-plus-circle"></span> Add New Event
             </a>
         </div>
@@ -44,7 +44,7 @@
     }
     else if (events.Count == 0)
     {
-        <div class="alert alert-info">No events found. <a href="/events/add" class="alert-link">Create a new event</a></div>
+        <div class="alert alert-info">No events found. <a href="EventEase/events/add" class="alert-link">Create a new event</a></div>
     }
     else
     {
@@ -89,7 +89,7 @@
                                         </button>
                                     }
                                 }
-                                <a href="/events/edit/@eventItem.Id" class="btn btn-outline-warning btn-sm">Edit</a>
+                                <a href="EventEase/events/edit/@eventItem.Id" class="btn btn-outline-warning btn-sm">Edit</a>
                                 <button class="btn btn-outline-danger btn-sm" 
                                         @onclick="() => DeleteEvent(eventItem.Id)">
                                     Delete
